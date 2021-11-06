@@ -16,6 +16,11 @@ public interface IAlphabet {
     Queue<Character> getAlphabet();
 
     /**
+     * @return the sound alphabet of a language
+     */
+    Queue<String> getSoundAlphabet();
+
+    /**
      * @return the title of the alphabet
      */
     String getTitle();

@@ -9,14 +9,14 @@ import components.queue.Queue;
 public class JapaneseAlphabet implements IAlphabet {
 
     private String title = "Japanese";
+    private String alphabet = "";
 
     /**
      *
      */
     @Override
     public Queue<Character> getAlphabet() {
-        // TODO Auto-generated method stub
-        return null;
+        return AlphabetHelper.generateAlphabet(this.alphabet);
     }
 
     @Override

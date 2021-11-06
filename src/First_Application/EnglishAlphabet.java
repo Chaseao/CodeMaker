@@ -1,6 +1,7 @@
 package First_Application;
 
 import components.queue.Queue;
+import components.queue.Queue2;
 
 /**
  * @author chase
@@ -8,9 +9,15 @@ import components.queue.Queue;
  */
 public class EnglishAlphabet implements IAlphabet {
 
-    private Queue<Character> myAlphabet;
     private String title = "English";
     private String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+    @Override
+    public Queue<String> getSoundAlphabet() {
+        Queue<String> soundAlphabet = new Queue2<>();
+
+        return soundAlphabet;
+    }
 
     /**
      *

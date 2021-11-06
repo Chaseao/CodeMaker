@@ -9,7 +9,7 @@ import components.queue.Queue2;
  */
 public final class AlphabetHelper {
     /**
-     * Private constructor
+     * Private constructor.
      */
     private AlphabetHelper() {
 
