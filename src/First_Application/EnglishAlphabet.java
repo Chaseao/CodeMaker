@@ -23,10 +23,17 @@ public class EnglishAlphabet implements IAlphabet {
     @Override
     public Queue<Integer> cipher(String inputToCipher) {
         Queue<Integer> cipheredMessage = new Queue2<Integer>();
+        boolean invalidOutput = false;
 
-        for (int i = 0; i < inputToCipher.length(); i++) {
+        for (int i = 0; i < inputToCipher.length() && !invalidOutput; i++) {
             char currentChar = inputToCipher.toUpperCase().charAt(i);
-            cipheredMessage.enqueue(this.alphabet.indexOf(currentChar));
+            int encodedWord = this.alphabet.indexOf(currentChar);
+            if (encodedWord != -1) {
+                cipheredMessage.enqueue(encodedWord);
+            } else {
+                invalidOutput = true;
+                cipheredMessage = null;
+            }
         }
         return cipheredMessage;
     }
