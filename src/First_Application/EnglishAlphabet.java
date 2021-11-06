@@ -14,10 +14,12 @@ public class EnglishAlphabet implements IAlphabet {
     private Queue<Character> myAlphabet;
 
     /**
-     * Creation Class
+     * Generates a new queue.
      */
-    public EnglishAlphabet() {
+    private void generateAlphabet() {
         String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+        this.myAlphabet.clear();
 
         for (int letterIndex = 0; letterIndex < alphabet
                 .length(); letterIndex++) {
@@ -31,6 +33,7 @@ public class EnglishAlphabet implements IAlphabet {
     @Override
     public Queue<Character> getAlphabet() {
         // TODO Auto-generated method stub
+        this.generateAlphabet();
         return this.myAlphabet;
     }
 }
