@@ -15,7 +15,11 @@ public final class AlphabetHelper {
 
     }
 
-    public final Queue<Character> generateAlphabet(String alphabet) {
+    /**
+     * @param alphabet
+     * @return the alphabet queue.
+     */
+    public static Queue<Character> generateAlphabet(String alphabet) {
         Queue<Character> myAlphabet = new Queue2<>();
 
         for (int letterIndex = 0; letterIndex < alphabet
