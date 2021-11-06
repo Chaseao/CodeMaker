@@ -4,7 +4,6 @@ import java.awt.Dimension;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.SwingConstants;
 
 import components.simplereader.SimpleReader;
 import components.simplereader.SimpleReader1L;
@@ -86,8 +85,9 @@ public final class LangForDumb {
                     out.println("Not a valid String");
                 }
                 String translatelist = translateAlphabet.decipher(numlist);
-                JLabel lblText = new JLabel("Translating from " + userinput
-                        + " to " + titletranslate, SwingConstants.CENTER);
+                JLabel lblText = new JLabel();
+                lblText.add("Translating from " + userinput + " to "
+                        + titletranslate, lblText);
                 frame.getContentPane().add(lblText);
                 out.println("");
                 out.println(userinput + " translates to " + translatelist);
