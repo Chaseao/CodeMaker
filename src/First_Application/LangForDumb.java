@@ -36,22 +36,33 @@ public final class LangForDumb {
 
         out.println("What Language do you wish to learn?: ");
         String answer = in.nextLine();
-        String title = "Select Language";
 
         while (!answer.equals("")) {
             switch (answer) {
                 case "English":
-                    currentAlphabet = new English();
+                    currentAlphabet = new EnglishAlphabet();
                     break;
                 case "Japanese":
-                    currentAlphabet = new Japanese();
+                    currentAlphabet = new JapaneseAlphabet();
                     break;
                 default:
                     out.println("Good Bye!");
                     break;
+
+            }
+            String title = currentAlphabet.getTitle();
+            components.queue.Queue<Character> list = currentAlphabet
+                    .getAlphabet();
+            out.println("title = " + title);
+            out.println(list);
+            out.println("");
+            for (int i = 0; i < list.length(); i++) {
+                out.print(list.dequeue());
+                out.println(" , ");
             }
 
-            currentAlphabet.getAlphabet();
+            out.println("What Language do you wish to learn?: ");
+            answer = in.nextLine();
 
         }
 
