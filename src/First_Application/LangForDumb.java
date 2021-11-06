@@ -36,6 +36,24 @@ public final class LangForDumb {
 
         out.println("What Language do you wish to learn?: ");
         String answer = in.nextLine();
+        String title = "Select Language";
+
+        while (!answer.equals("")) {
+            switch (answer) {
+                case "English":
+                    currentAlphabet = new English();
+                    break;
+                case "Japanese":
+                    currentAlphabet = new Japanese();
+                    break;
+                default:
+                    out.println("Good Bye!");
+                    break;
+            }
+
+            currentAlphabet.getAlphabet();
+
+        }
 
     }
 
