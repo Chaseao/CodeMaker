@@ -33,14 +33,14 @@ public final class LangForDumb {
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
         IAlphabet currentAlphabet = null;
-        IAlphabet translateAlbhabet = null;
+        IAlphabet translateAlphabet = null;
 
         out.println("What Language do you wish to translate from?: ");
         String answer = in.nextLine();
         out.println("What Language do you wish to translate to?: ");
-        String answer1 = in.nextLine();
+        String answertranslate = in.nextLine();
 
-        while (!answer.equals("")) {
+        while ((!answer.equals("")) && !answertranslate.equals("")) {
             switch (answer) {
                 case "English":
                     currentAlphabet = new EnglishAlphabet();
@@ -56,43 +56,35 @@ public final class LangForDumb {
                     break;
 
             }
-            switch (answer1) {
+            switch (answertranslate) {
                 case "English":
-                    translateAlbhabet = new EnglishAlphabet();
+                    translateAlphabet = new EnglishAlphabet();
                     break;
                 case "MorseCode":
-                    translateAlbhabet = new MorseCodeAlphabet();
+                    translateAlphabet = new MorseCodeAlphabet();
                     break;
                 case "Military":
-                    translateAlbhabet = new MilitaryAlphabet();
+                    translateAlphabet = new MilitaryAlphabet();
                     break;
                 default:
                     out.println("Good Bye!");
                     break;
 
             }
+            out.println("Please enter in a String: ");
+            String userinput = in.nextLine();
 
             String title = currentAlphabet.getTitle();
-            String titletranslate = translateAlbhabet.getTitle();
-            components.queue.Queue<Character> list = currentAlphabet
-                    .translate();
-            components.queue.Queue<Character> soundlist = translateAlbhabet
-                    .translate();
-            out.println("title = " + title);
-            out.println(list);
-            out.println(soundlist);
-            out.println("");
-            for (int i = 0; i < list.length(); i++) {
-                out.print(list.dequeue());
-                out.print(" , ");
-            }
-            for (int i = 0; i < soundlist.length(); i++) {
-                out.print(soundlist.dequeue());
-                out.print(" , ");
-            }
+            String titletranslate = translateAlphabet.getTitle();
+            components.queue.Queue<Integer> list = currentAlphabet
+                    .cipher(userinput);
+            String translatelist = translateAlphabet.decipher(list);
+            out.println("Translating from " + title + " to " + titletranslate);
             out.println("");
             out.println("What Language do you wish to learn?: ");
             answer = in.nextLine();
+            out.println("What Language do you wish to translate to?: ");
+            answertranslate = in.nextLine();
 
         }
 
