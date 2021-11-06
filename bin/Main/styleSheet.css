@@ -1,0 +1,20 @@
+@charset "ISO-8859-1";
+body 
+{
+	background-color: #ecf0f1;
+    text-align: center;	
+    font-family: Papyrus, "Times New Roman", Georgia, Arial;
+}
+
+h1
+{
+	text-decoration: underline;
+	color: #1abc9c;
+}
+
+input{
+	font-family: Papyrus, Georgia, Arial;
+	color: #2c3e50;
+	background-color: #7f8c8d;
+	font-weight: bold;
+}
