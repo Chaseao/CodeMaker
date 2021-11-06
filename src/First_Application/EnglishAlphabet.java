@@ -8,32 +8,24 @@ import components.queue.Queue;
  */
 public class EnglishAlphabet implements IAlphabet {
 
-    /**
-     *
-     */
     private Queue<Character> myAlphabet;
-
-    /**
-     * Generates a new queue.
-     */
-    private void generateAlphabet() {
-        String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
-        this.myAlphabet.clear();
-
-        for (int letterIndex = 0; letterIndex < alphabet
-                .length(); letterIndex++) {
-            this.myAlphabet.enqueue(alphabet.charAt(letterIndex));
-        }
-    }
+    private String title = "English";
+    private String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     /**
      *
      */
     @Override
     public Queue<Character> getAlphabet() {
-        // TODO Auto-generated method stub
-        this.generateAlphabet();
-        return this.myAlphabet;
+        // TODO Auto-generated method stub;
+        return AlphabetHelper.generateAlphabet(this.alphabet);
+    }
+
+    /**
+     * Returns English
+     */
+    @Override
+    public String getTitle() {
+        return this.title;
     }
 }

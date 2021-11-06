@@ -8,6 +8,8 @@ import components.queue.Queue;
  */
 public class JapaneseAlphabet implements IAlphabet {
 
+    private String title = "Japanese";
+
     /**
      *
      */
@@ -15,6 +17,11 @@ public class JapaneseAlphabet implements IAlphabet {
     public Queue<Character> getAlphabet() {
         // TODO Auto-generated method stub
         return null;
+    }
+
+    @Override
+    public String getTitle() {
+        return this.title;
     }
 
 }

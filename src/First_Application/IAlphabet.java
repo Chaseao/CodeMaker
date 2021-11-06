@@ -15,6 +15,9 @@ public interface IAlphabet {
      */
     Queue<Character> getAlphabet();
 
+    /**
+     * @return the title of the alphabet
+     */
     String getTitle();
 
 }
