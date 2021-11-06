@@ -53,7 +53,6 @@ public final class LangForDumb {
                     currentAlphabet = new MilitaryAlphabet();
                     break;
                 default:
-                    out.println("Good Bye!");
                     count = 1;
                     break;
 
@@ -69,7 +68,6 @@ public final class LangForDumb {
                     translateAlphabet = new MilitaryAlphabet();
                     break;
                 default:
-                    out.println("Good Bye!");
                     count = 1;
                     break;
 
@@ -96,6 +94,9 @@ public final class LangForDumb {
                 answer = in.nextLine();
                 out.println("What Language do you wish to translate to?: ");
                 answertranslate = in.nextLine();
+            } else {
+                out.println("Good Bye!");
+                break;
             }
 
         }
