@@ -26,9 +26,8 @@ public final class LangForDumb {
 
         frame.setMinimumSize(new Dimension(800, 600));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        JLabel lblText = new JLabel("Hello World!", SwingConstants.CENTER);
-        frame.getContentPane().add(lblText);
+        //JLabel lblText = new JLabel("Hello World!", SwingConstants.CENTER);
+        //frame.getContentPane().add(lblText);
         frame.pack();
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
@@ -78,8 +77,14 @@ public final class LangForDumb {
             String titletranslate = translateAlphabet.getTitle();
             components.queue.Queue<Integer> list = currentAlphabet
                     .cipher(userinput);
+            out.println(list);
             String translatelist = translateAlphabet.decipher(list);
-            out.println("Translating from " + title + " to " + titletranslate);
+            JLabel lblText = new JLabel(
+                    "Translating from " + title + " to " + titletranslate,
+                    SwingConstants.CENTER);
+            frame.getContentPane().add(lblText);
+            out.println("");
+            out.println(userinput + " translates to " + translatelist);
             out.println("");
             out.println("What Language do you wish to learn?: ");
             answer = in.nextLine();

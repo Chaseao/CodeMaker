@@ -44,7 +44,8 @@ public class MorseCodeAlphabet implements IAlphabet {
                 "--*-", "*-*", "***", "-", "**-", "***-", "*--", "-**-", "-*--",
                 "--**" };
         String answer = "";
-        for (int k = 0; k < inputToDecipher.length(); k++) {
+        int length = inputToDecipher.length();
+        for (int k = 0; k < length; k++) {
             int num = inputToDecipher.dequeue();
             answer += morse[num] + " ";
         }
