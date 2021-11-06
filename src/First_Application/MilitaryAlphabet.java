@@ -1,6 +1,7 @@
 package First_Application;
 
 import components.queue.Queue;
+import components.queue.Queue2;
 
 /**
  * @author chase
@@ -21,13 +22,39 @@ public class MilitaryAlphabet implements IAlphabet {
 
     @Override
     public Queue<Integer> cipher(String inputToCipher) {
+        Queue<Integer> messageToCipher = new Queue2<Integer>();
+        String[] arrayOfInputToCipher = inputToCipher.toUpperCase().split(" ");
+        String[] arrayOfCipher = this.alphabet.toUpperCase().split(" ");
 
-        return null;
+        for (int i = 0; i < arrayOfInputToCipher.length; i++) {
+            String wordToCipher = arrayOfInputToCipher[i];
+            messageToCipher
+                    .enqueue(this.cipherWord(wordToCipher, arrayOfCipher));
+        }
+
+        return messageToCipher;
+    }
+
+    private int cipherWord(String wordToCipher, String[] code) {
+        int cipheredWord = 0;
+
+        for (int i = 0; i < this.alphabet.length(); i++) {
+            if (wordToCipher.equals(code[i])) {
+                cipheredWord = i;
+            }
+        }
+        return cipheredWord;
     }
 
     @Override
     public String decipher(Queue<Integer> inputToDecipher) {
-        // TODO Auto-generated method stub
-        return null;
+        String decipheredWord = "";
+        String[] arrayOfCipher = this.alphabet.toUpperCase().split(" ");
+
+        while (inputToDecipher.length() > 0) {
+            decipheredWord += arrayOfCipher[inputToDecipher.dequeue()] + " ";
+        }
+
+        return decipheredWord;
     }
 }
