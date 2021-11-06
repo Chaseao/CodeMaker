@@ -29,6 +29,12 @@ public final class SwingHelloWorld {
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
 
+        IAlphabet currentAlphabet = null;
+
+        currentAlphabet = new English();
+
+        currentAlphabet = new Japanese();
+
     }
 
 }
