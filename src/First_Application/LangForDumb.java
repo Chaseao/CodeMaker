@@ -42,11 +42,11 @@ public final class LangForDumb {
                 case "English":
                     currentAlphabet = new EnglishAlphabet();
                     break;
-                case "French":
-                    currentAlphabet = new FrenchAlphabet();
+                case "MorseCode":
+                    currentAlphabet = new MorseCodeAlphabet();
                     break;
-                case "Spanish":
-                    currentAlphabet = new SpanishAlphabet();
+                case "Military":
+                    currentAlphabet = new MilitaryAlphabet();
                     break;
                 default:
                     out.println("Good Bye!");
