@@ -41,17 +41,20 @@ public final class LangForDumb {
         while (!answer.equals("")) {
             switch (answer) {
                 case "English":
-                    currentAlphabet = new English();
+                    currentAlphabet = new EnglishAlphabet();
                     break;
                 case "Japanese":
-                    currentAlphabet = new Japanese();
+                    currentAlphabet = new JapaneseAlphabet();
                     break;
                 default:
                     out.println("Good Bye!");
                     break;
             }
 
-            currentAlphabet.getAlphabet();
+
+            Queue<char> Alphabetlist = Queue<>(currentAlphabet.getAlphabet());
+
+
 
         }
 
