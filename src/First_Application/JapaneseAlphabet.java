@@ -1,13 +1,18 @@
 package First_Application;
 
-import java.util.Dictionary;
-
 import components.queue.Queue;
 
-public class Japanese implements IAlphabet {
+/**
+ * @author chase
+ *
+ */
+public class JapaneseAlphabet implements IAlphabet {
 
+    /**
+     *
+     */
     @Override
-    public Queue<Dictionary<String, String>> getAlphabet() {
+    public Queue<Character> getAlphabet() {
         // TODO Auto-generated method stub
         return null;
     }

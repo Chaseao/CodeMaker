@@ -1,7 +1,5 @@
 package First_Application;
 
-import java.util.Dictionary;
-
 import components.queue.Queue;
 
 /**
@@ -15,6 +13,6 @@ public interface IAlphabet {
      *
      * @return alphabet dictionary
      */
-    Queue<Dictionary<String, String>> getAlphabet();
+    Queue<Character> getAlphabet();
 
 }
