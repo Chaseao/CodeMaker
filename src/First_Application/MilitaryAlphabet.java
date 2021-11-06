@@ -10,11 +10,10 @@ public class MilitaryAlphabet implements IAlphabet {
 
     private Queue<Character> myAlphabet;
     private String title = "Military";
-    private String alphabet = "";
+    private String alphabet = "Alpha Bravo Charlie Delta Echo Foxtrot Golf "
+            + "Hotel India Juliet Kilo Lima Mike Novemeber Oscar Papa Quebec "
+            + "Romeo Sierra Tango Uniform Victor Whiskey X-ray Yankee Zulu";
 
-    /**
-     * Returns English
-     */
     @Override
     public String getTitle() {
         return this.title;
@@ -22,7 +21,7 @@ public class MilitaryAlphabet implements IAlphabet {
 
     @Override
     public Queue<Integer> cipher(String inputToCipher) {
-        // TODO Auto-generated method stub
+
         return null;
     }
 
