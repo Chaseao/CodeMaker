@@ -33,9 +33,12 @@ public final class LangForDumb {
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
         IAlphabet currentAlphabet = null;
+        IAlphabet translateAlbhabet = null;
 
-        out.println("What Language do you wish to learn?: ");
+        out.println("What Language do you wish to translate from?: ");
         String answer = in.nextLine();
+        out.println("What Language do you wish to translate to?: ");
+        String answer1 = in.nextLine();
 
         while (!answer.equals("")) {
             switch (answer) {
@@ -53,11 +56,28 @@ public final class LangForDumb {
                     break;
 
             }
+            switch (answer1) {
+                case "English":
+                    translateAlbhabet = new EnglishAlphabet();
+                    break;
+                case "MorseCode":
+                    translateAlbhabet = new MorseCodeAlphabet();
+                    break;
+                case "Military":
+                    translateAlbhabet = new MilitaryAlphabet();
+                    break;
+                default:
+                    out.println("Good Bye!");
+                    break;
+
+            }
+
             String title = currentAlphabet.getTitle();
+            String titletranslate = translateAlbhabet.getTitle();
             components.queue.Queue<Character> list = currentAlphabet
-                    .getAlphabet();
-            components.queue.Queue<Character> soundlist = currentAlphabet
-                    .getSoundAlphabet();
+                    .translate();
+            components.queue.Queue<Character> soundlist = translateAlbhabet
+                    .translate();
             out.println("title = " + title);
             out.println(list);
             out.println(soundlist);
