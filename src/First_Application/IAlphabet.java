@@ -9,16 +9,20 @@ import components.queue.Queue;
 public interface IAlphabet {
 
     /**
-     * This returns an alphabet dictionary.
-     *
-     * @return alphabet dictionary
+     * @param inputToCipher
+     * @return the coded input
      */
-    Queue<Character> getAlphabet();
+    Queue<Integer> cipher(String inputToCipher);
+
+    /**
+     * @param inputToDecipher
+     * @return the deciphered output
+     */
+    String decipher(Queue<Integer> inputToDecipher);
 
     /**
      * @return the sound alphabet of a language
      */
-    Queue<String> getSoundAlphabet();
 
     /**
      * @return the title of the alphabet
