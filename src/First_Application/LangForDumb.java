@@ -10,7 +10,7 @@ import javax.swing.SwingConstants;
  * @author chase
  *
  */
-public final class SwingHelloWorld {
+public final class LangForDumb {
     /**
      * @param args
      */
