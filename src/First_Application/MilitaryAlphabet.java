@@ -6,11 +6,11 @@ import components.queue.Queue;
  * @author chase
  *
  */
-public class SpanishAlphabet implements IAlphabet {
+public class MilitaryAlphabet implements IAlphabet {
 
     private Queue<Character> myAlphabet;
-    private String title = "English";
-    private String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    private String title = "Military";
+    private String alphabet = "";
 
     /**
      *

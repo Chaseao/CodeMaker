@@ -6,9 +6,9 @@ import components.queue.Queue;
  * @author chase
  *
  */
-public class JapaneseAlphabet implements IAlphabet {
+public class MorseCodeAlphabet implements IAlphabet {
 
-    private String title = "Japanese";
+    private String title = "MorseCode";
     private String alphabet = "";
 
     /**
