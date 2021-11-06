@@ -27,6 +27,7 @@ public final class SwingHelloWorld {
 
         frame.pack();
         frame.setVisible(true);
+        frame.setLocationRelativeTo(null);
 
     }
 
