@@ -4,7 +4,6 @@ import java.awt.Dimension;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.SwingConstants;
 
 import components.simplereader.SimpleReader;
 import components.simplereader.SimpleReader1L;
@@ -38,58 +37,67 @@ public final class LangForDumb {
         String answer = in.nextLine();
         out.println("What Language do you wish to translate to?: ");
         String answertranslate = in.nextLine();
+        int count = 0;
+        answer.toLowerCase();
+        answertranslate.toLowerCase();
 
         while ((!answer.equals("")) && !answertranslate.equals("")) {
             switch (answer) {
-                case "English":
+                case "english":
                     currentAlphabet = new EnglishAlphabet();
                     break;
-                case "MorseCode":
+                case "morseCode":
                     currentAlphabet = new MorseCodeAlphabet();
                     break;
-                case "Military":
+                case "military":
                     currentAlphabet = new MilitaryAlphabet();
                     break;
                 default:
-                    out.println("Good Bye!");
+                    count = 1;
                     break;
 
             }
             switch (answertranslate) {
-                case "English":
+                case "english":
                     translateAlphabet = new EnglishAlphabet();
                     break;
-                case "MorseCode":
+                case "morseCode":
                     translateAlphabet = new MorseCodeAlphabet();
                     break;
-                case "Military":
+                case "military":
                     translateAlphabet = new MilitaryAlphabet();
                     break;
                 default:
-                    out.println("Good Bye!");
+                    count = 1;
                     break;
 
             }
-            out.println("Please enter in a String: ");
-            String userinput = in.nextLine();
-
-            String title = currentAlphabet.getTitle();
-            String titletranslate = translateAlphabet.getTitle();
-            components.queue.Queue<Integer> list = currentAlphabet
-                    .cipher(userinput);
-            out.println(list);
-            String translatelist = translateAlphabet.decipher(list);
-            JLabel lblText = new JLabel(
-                    "Translating from " + title + " to " + titletranslate,
-                    SwingConstants.CENTER);
-            frame.getContentPane().add(lblText);
-            out.println("");
-            out.println(userinput + " translates to " + translatelist);
-            out.println("");
-            out.println("What Language do you wish to learn?: ");
-            answer = in.nextLine();
-            out.println("What Language do you wish to translate to?: ");
-            answertranslate = in.nextLine();
+            if (count == 0) {
+                out.println("Please enter in a String: ");
+                String userinput = in.nextLine();
+                String title = currentAlphabet.getTitle();
+                String titletranslate = translateAlphabet.getTitle();
+                components.queue.Queue<Integer> numlist = currentAlphabet
+                        .cipher(userinput);
+                if (numlist == null) {
+                    out.println("Not a valid String");
+                }
+                String translatelist = translateAlphabet.decipher(numlist);
+                JLabel lblText = new JLabel();
+                lblText.add("Translating from " + userinput + " to "
+                        + titletranslate, lblText);
+                frame.getContentPane().add(lblText);
+                out.println("");
+                out.println(userinput + " translates to " + translatelist);
+                out.println("");
+                out.println("What Language do you wish to translate?: ");
+                answer = in.nextLine();
+                out.println("What Language do you wish to translate to?: ");
+                answertranslate = in.nextLine();
+            } else {
+                out.println("Good Bye!");
+                break;
+            }
 
         }
 
