@@ -42,8 +42,11 @@ public final class LangForDumb {
                 case "English":
                     currentAlphabet = new EnglishAlphabet();
                     break;
-                case "Japanese":
-                    currentAlphabet = new JapaneseAlphabet();
+                case "French":
+                    currentAlphabet = new FrenchAlphabet();
+                    break;
+                case "Spanish":
+                    currentAlphabet = new SpanishAlphabet();
                     break;
                 default:
                     out.println("Good Bye!");
@@ -53,14 +56,21 @@ public final class LangForDumb {
             String title = currentAlphabet.getTitle();
             components.queue.Queue<Character> list = currentAlphabet
                     .getAlphabet();
+            components.queue.Queue<Character> soundlist = currentAlphabet
+                    .getSoundAlphabet();
             out.println("title = " + title);
             out.println(list);
+            out.println(soundlist);
             out.println("");
             for (int i = 0; i < list.length(); i++) {
                 out.print(list.dequeue());
-                out.println(" , ");
+                out.print(" , ");
             }
-
+            for (int i = 0; i < soundlist.length(); i++) {
+                out.print(soundlist.dequeue());
+                out.print(" , ");
+            }
+            out.println("");
             out.println("What Language do you wish to learn?: ");
             answer = in.nextLine();
 
