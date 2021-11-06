@@ -38,10 +38,10 @@ public final class LangForDumb {
         out.println("What Language do you wish to translate to?: ");
         String answertranslate = in.nextLine();
         int count = 0;
-        answer.toLowerCase();
-        answertranslate.toLowerCase();
 
         while ((!answer.equals("")) && !answertranslate.equals("")) {
+            answer = answer.toLowerCase();
+            answertranslate = answertranslate.toLowerCase();
             switch (answer) {
                 case "english":
                     currentAlphabet = new EnglishAlphabet();
@@ -61,7 +61,7 @@ public final class LangForDumb {
                 case "english":
                     translateAlphabet = new EnglishAlphabet();
                     break;
-                case "morseCode":
+                case "morsecode":
                     translateAlphabet = new MorseCodeAlphabet();
                     break;
                 case "military":
