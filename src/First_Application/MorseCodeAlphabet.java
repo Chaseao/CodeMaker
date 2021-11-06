@@ -34,6 +34,9 @@ public class MorseCodeAlphabet implements IAlphabet {
             }
 
         }
+        if (codesplit.length != MorseCordeCipher.length()) {
+            MorseCordeCipher = null;
+        }
         return MorseCordeCipher;
     }
 
