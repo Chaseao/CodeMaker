@@ -25,24 +25,33 @@ public class MilitaryAlphabet implements IAlphabet {
         Queue<Integer> messageToCipher = new Queue2<Integer>();
         String[] arrayOfInputToCipher = inputToCipher.toUpperCase().split(" ");
         String[] arrayOfCipher = this.alphabet.toUpperCase().split(" ");
+        boolean invalidOutput = false;
 
-        for (int i = 0; i < arrayOfInputToCipher.length; i++) {
+        for (int i = 0; i < arrayOfInputToCipher.length
+                && !invalidOutput; i++) {
             String wordToCipher = arrayOfInputToCipher[i];
-            messageToCipher
-                    .enqueue(this.cipherWord(wordToCipher, arrayOfCipher));
+            int cipheredWord = this.cipherWord(wordToCipher, arrayOfCipher);
+
+            if (cipheredWord != -1) {
+                messageToCipher.enqueue(cipheredWord);
+            } else {
+                invalidOutput = true;
+                messageToCipher = null;
+            }
         }
 
         return messageToCipher;
     }
 
     private int cipherWord(String wordToCipher, String[] code) {
-        int cipheredWord = 0;
+        int cipheredWord = -1;
 
-        for (int i = 0; i < this.alphabet.length(); i++) {
+        for (int i = 0; i < code.length; i++) {
             if (wordToCipher.equals(code[i])) {
                 cipheredWord = i;
             }
         }
+
         return cipheredWord;
     }
 
