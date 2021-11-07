@@ -1,14 +1,5 @@
 package Application;
 
-import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-
 import EcryptionObjects.EnglishAlphabet;
 import EcryptionObjects.IAlphabet;
 import EcryptionObjects.MilitaryAlphabet;
@@ -29,31 +20,9 @@ public final class LangForDumb {
     public static void main(String[] args) {
         SimpleReader in = new SimpleReader1L();
         SimpleWriter out = new SimpleWriter1L();
-        final JFrame frame = new JFrame("Hello World APP");
-
-        // Create JButton and JPanel
-        JButton button = new JButton("Click here!");
-        JPanel panel = new JPanel();
 
         final DisplayGUI display = new DisplayGUI();
 
-        // Add button to JPanel
-        panel.add(button);
-        // And JPanel needs to be added to the JFrame itself!
-        frame.getContentPane().add(panel);
-        button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                display.UpdateTitleText("Welcome to hell.");
-            }
-        });
-
-        frame.setVisible(true);
-
-        frame.setMinimumSize(new Dimension(800, 600));
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        JLabel lblText = new JLabel();
-        JLabel translation = new JLabel();
         IAlphabet currentAlphabet = null;
         IAlphabet translateAlphabet = null;
 
@@ -98,7 +67,6 @@ public final class LangForDumb {
             }
             if (count == 0) {
 
-                frame.setTitle("Welcome to purgatory.");
                 out.println("Please enter in a String: ");
                 String userinput = in.nextLine();
                 String title = currentAlphabet.getTitle();
@@ -109,11 +77,11 @@ public final class LangForDumb {
                     out.println("Not a valid String");
                 }
                 String translatelist = translateAlphabet.decipher(numlist);
-                lblText.setText(
+                display.UpdateTitleText(
                         "Translating from " + title + " to " + titletranslate);
                 out.println("");
-                translation
-                        .setText(userinput + " translates to " + translatelist);
+                display.UpdateDecryptionText(
+                        userinput + " translates to " + translatelist);
                 out.println("");
                 out.println("What Language do you wish to translate?: ");
                 answer = in.nextLine();
