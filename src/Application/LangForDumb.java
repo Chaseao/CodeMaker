@@ -8,7 +8,6 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
 
 import EcryptionObjects.EnglishAlphabet;
 import EcryptionObjects.IAlphabet;
@@ -36,7 +35,7 @@ public final class LangForDumb {
         JButton button = new JButton("Click here!");
         JPanel panel = new JPanel();
 
-        DisplayGUI display = new DisplayGUI();
+        final DisplayGUI display = new DisplayGUI();
 
         // Add button to JPanel
         panel.add(button);
@@ -45,7 +44,7 @@ public final class LangForDumb {
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setTitle("Welcome to hell.");
+                display.UpdateTitleText("Welcome to hell.");
             }
         });
 
@@ -53,13 +52,8 @@ public final class LangForDumb {
 
         frame.setMinimumSize(new Dimension(800, 600));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        JLabel lblText = new JLabel("Testing", SwingConstants.CENTER);
-        JLabel translation = new JLabel("no translation yet...", 2);
-        frame.getContentPane().add(translation);
-        frame.getContentPane().add(lblText);
-        frame.pack();
-        frame.setVisible(true);
-        frame.setLocationRelativeTo(null);
+        JLabel lblText = new JLabel();
+        JLabel translation = new JLabel();
         IAlphabet currentAlphabet = null;
         IAlphabet translateAlphabet = null;
 
@@ -103,6 +97,7 @@ public final class LangForDumb {
 
             }
             if (count == 0) {
+
                 frame.setTitle("Welcome to purgatory.");
                 out.println("Please enter in a String: ");
                 String userinput = in.nextLine();
