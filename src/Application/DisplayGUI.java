@@ -93,7 +93,7 @@ public class DisplayGUI {
         int centerAlign = SwingConstants.CENTER;
         String[] lang = { "English", "MorseCode", "Military" };
 
-        this.titleTextField = new JLabel("Title", centerAlign);
+        this.titleTextField = new JLabel("Secret Message", centerAlign);
         this.ecryptionTitleTextField = new JComboBox<String>(lang);
         this.decryptionTitleTextField = new JComboBox<String>(lang);
         this.encryptionTextField = new JTextArea(1, 1);

@@ -15,7 +15,7 @@ public final class LangForDumb {
      */
     public static void main(String[] args) {
 
-        final DisplayGUI display = new DisplayGUI();
+        new DisplayGUI();
 
     }
 
@@ -33,7 +33,7 @@ public final class LangForDumb {
             case "english":
                 currentAlphabet = new EnglishAlphabet();
                 break;
-            case "morseCode":
+            case "morsecode":
                 currentAlphabet = new MorseCodeAlphabet();
                 break;
             case "military":
@@ -70,8 +70,6 @@ public final class LangForDumb {
                 displayGUI.UpdateDecryptionText("INVALID CODE");
             } else {
                 String translatelist = translateAlphabet.decipher(numlist);
-                displayGUI.UpdateTitleText(
-                        "Translating from " + title + " to " + titletranslate);
                 displayGUI.UpdateDecryptionText(translatelist);
             }
 
