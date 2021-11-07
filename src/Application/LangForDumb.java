@@ -1,4 +1,4 @@
-package First_Application;
+package Application;
 
 import java.awt.Dimension;
 
@@ -6,6 +6,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
+import EcryptionObjects.EnglishAlphabet;
+import EcryptionObjects.IAlphabet;
+import EcryptionObjects.MilitaryAlphabet;
+import EcryptionObjects.MorseCodeAlphabet;
 import components.simplereader.SimpleReader;
 import components.simplereader.SimpleReader1L;
 import components.simplewriter.SimpleWriter;
@@ -26,10 +30,10 @@ public final class LangForDumb {
 
         frame.setMinimumSize(new Dimension(800, 600));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        JLabel lblText = new JLabel("", SwingConstants.CENTER);
+        JLabel lblText = new JLabel("Testing", SwingConstants.CENTER);
         JLabel translation = new JLabel("no translation yet...", 2);
-        frame.getContentPane().add(lblText);
         frame.getContentPane().add(translation);
+        frame.getContentPane().add(lblText);
         frame.pack();
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);

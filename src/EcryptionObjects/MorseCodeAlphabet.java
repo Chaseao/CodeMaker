@@ -1,4 +1,4 @@
-package First_Application;
+package EcryptionObjects;
 
 import components.queue.Queue;
 import components.queue.Queue2;
