@@ -19,22 +19,25 @@ public final class LangForDumb {
      */
     public static void main(String[] args) {
 
-        final DisplayGUI display = new DisplayGUI();
+        final DisplayGUI2 display = new DisplayGUI2();
 
     }
 
-    private static void buttonDoTranslation(DisplayGUI display) {
+    public static void buttonDoTranslation(DisplayGUI2 display) {
         SimpleReader in = new SimpleReader1L();
         SimpleWriter out = new SimpleWriter1L();
 
         IAlphabet currentAlphabet = null;
         IAlphabet translateAlphabet = null;
 
+        out.print("Please input encoding language: ");
         String answer = in.nextLine();
+        out.print("Please input decoding language: ");
         String answertranslate = in.nextLine();
+
         int count = 0;
-        answer = answer.toLowerCase();
-        answertranslate = answertranslate.toLowerCase();
+        answer = answer.toLowerCase().trim();
+        answertranslate = answertranslate.toLowerCase().trim();
         switch (answer) {
             case "english":
                 currentAlphabet = new EnglishAlphabet();
@@ -67,26 +70,23 @@ public final class LangForDumb {
         }
         if (count == 0) {
 
-            out.println("Please enter in a String: ");
-            String userinput = in.nextLine();
+            String userinput = display.GetEncryptionText();
             String title = currentAlphabet.getTitle();
             String titletranslate = translateAlphabet.getTitle();
             components.queue.Queue<Integer> numlist = currentAlphabet
                     .cipher(userinput);
             if (numlist == null) {
-                out.println("Not a valid String");
+                display.UpdateDecryptionText("");
+            } else {
+                String translatelist = translateAlphabet.decipher(numlist);
+                display.UpdateTitleText(
+                        "Translating from " + title + " to " + titletranslate);
+                out.println("");
+                display.UpdateDecryptionText(
+                        userinput + " translates to " + translatelist);
+                out.println("");
             }
-            String translatelist = translateAlphabet.decipher(numlist);
-            display.UpdateTitleText(
-                    "Translating from " + title + " to " + titletranslate);
-            out.println("");
-            display.UpdateDecryptionText(
-                    userinput + " translates to " + translatelist);
-            out.println("");
-            out.println("What Language do you wish to translate?: ");
-            answer = in.nextLine();
-            out.println("What Language do you wish to translate to?: ");
-            answertranslate = in.nextLine();
+
         } else {
             out.println("Good Bye!");
         }

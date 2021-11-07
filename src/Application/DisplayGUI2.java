@@ -10,15 +10,16 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-import javax.swing.JTextField;
+import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
 
-public class DisplayGUI2 implements ActionListener {
+public class DisplayGUI2 {
 
     private JLabel titleTextField;
     private JLabel ecryptionTitleTextField;
-    private JTextField ecryptionTextField;
+    private JTextArea ecryptionTextField;
     private JLabel decryptionTitleTextField;
     private JTextArea decryptionTextField;
 
@@ -27,8 +28,10 @@ public class DisplayGUI2 implements ActionListener {
 
     public DisplayGUI2() {
         this.initializeGUI_Window();
-
         this.initializeGUI_Panel();
+
+        this.guiWindow.pack();
+        this.guiWindow.setVisible(true);
     }
 
     private void initializeGUI_Panel() {
@@ -49,7 +52,7 @@ public class DisplayGUI2 implements ActionListener {
         this.guiPanel.add(this.ecryptionTitleTextField, settings);
 
         settings.weightx = 0;
-        settings.gridx = 1;
+        settings.gridx = 0;
         settings.gridy = 2;
         this.guiPanel.add(this.ecryptionTextField, settings);
 
@@ -58,21 +61,27 @@ public class DisplayGUI2 implements ActionListener {
         settings.gridy = 1;
         this.guiPanel.add(this.decryptionTitleTextField, settings);
 
-        settings.weightx = 0;
-        settings.gridx = 1;
-        settings.gridy = 3;
-        this.guiPanel.add(this.decryptionTextField, settings);
+        JScrollPane scroll = new JScrollPane(this.decryptionTextField);
+        scroll.setVerticalScrollBarPolicy(
+                ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
-        JButton button = new JButton("Click here!");
-        settings.weightx = 0;
+        scroll.setSize(new Dimension(100, 50));
+
+        settings.weightx = 1;
         settings.gridx = 2;
         settings.gridy = 2;
-        this.guiPanel.add(button);
+        this.guiPanel.add(this.decryptionTextField, settings);
+
+        JButton button = new JButton("Code Message");
+        settings.weightx = 0;
+        settings.gridx = 1;
+        settings.gridy = 2;
+        this.guiPanel.add(button, settings);
 
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                DisplayGUI2.this.UpdateTitleText("Welcome to hell.");
+                LangForDumb.buttonDoTranslation(DisplayGUI2.this);
             }
         });
 
@@ -85,19 +94,24 @@ public class DisplayGUI2 implements ActionListener {
         this.titleTextField = new JLabel("Title", centerAlign);
         this.ecryptionTitleTextField = new JLabel("Language One", centerAlign);
         this.decryptionTitleTextField = new JLabel("Language Two", centerAlign);
-        this.ecryptionTextField = new JTextField(4);
+        this.ecryptionTextField = new JTextArea(4, 5);
+        this.ecryptionTextField.setLineWrap(true);
         this.decryptionTextField = new JTextArea(4, 5);
+        this.decryptionTextField.setLineWrap(true);
         this.decryptionTextField.setEditable(false);
 
     }
 
     private void initializeGUI_Window() {
         this.guiWindow = new JFrame("LangForDumb");
-        this.guiWindow.pack();
-        this.guiWindow.setVisible(true);
+        this.guiWindow.setPreferredSize(new Dimension(800, 200));
+        this.guiWindow.setResizable(false);
         this.guiWindow.setLocationRelativeTo(null);
-        this.guiWindow.setMinimumSize(new Dimension(800, 600));
         this.guiWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
+    public String GetEncryptionText() {
+        return this.ecryptionTextField.getText();
     }
 
     public void UpdateEcryptionText(String updatedText) {
@@ -110,11 +124,5 @@ public class DisplayGUI2 implements ActionListener {
 
     public void UpdateTitleText(String updatedTitle) {
         this.titleTextField.setText(updatedTitle);
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent evt) {
-        String text = this.ecryptionTextField.getText();
-
     }
 }
