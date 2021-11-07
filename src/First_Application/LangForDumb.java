@@ -4,6 +4,7 @@ import java.awt.Dimension;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.SwingConstants;
 
 import components.simplereader.SimpleReader;
 import components.simplereader.SimpleReader1L;
@@ -25,8 +26,10 @@ public final class LangForDumb {
 
         frame.setMinimumSize(new Dimension(800, 600));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //JLabel lblText = new JLabel("Hello World!", SwingConstants.CENTER);
-        //frame.getContentPane().add(lblText);
+        JLabel lblText = new JLabel("", SwingConstants.CENTER);
+        JLabel translation = new JLabel("no translation yet...", 2);
+        frame.getContentPane().add(lblText);
+        frame.getContentPane().add(translation);
         frame.pack();
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
@@ -83,6 +86,7 @@ public final class LangForDumb {
                     out.println("Not a valid String");
                 }
                 String translatelist = translateAlphabet.decipher(numlist);
+<<<<<<< HEAD
                 JLabel lblText = new JLabel();
                 lblText.setText("Translating from " + userinput + " to "
                         + titletranslate);
@@ -92,8 +96,13 @@ public final class LangForDumb {
                 frame.setVisible(true);
                 frame.setLocationRelativeTo(null);
                 //frame.getContentPane().add(lblText);
+=======
+                lblText.setText("Translating from " + userinput + " to "
+                        + titletranslate);
+>>>>>>> b96baecadd5588e5d67b554f2d6577cd5626cc74
                 out.println("");
-                out.println(userinput + " translates to " + translatelist);
+                translation
+                        .setText(userinput + " translates to " + translatelist);
                 out.println("");
                 out.println("What Language do you wish to translate?: ");
                 answer = in.nextLine();
