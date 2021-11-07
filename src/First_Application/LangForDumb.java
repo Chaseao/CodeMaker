@@ -21,7 +21,7 @@ public final class LangForDumb {
     public static void main(String[] args) {
         SimpleReader in = new SimpleReader1L();
         SimpleWriter out = new SimpleWriter1L();
-        JFrame frame = new JFrame("Hello World APP");
+        JFrame frame = new JFrame("Enchipher");
 
         frame.setMinimumSize(new Dimension(800, 600));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -40,8 +40,8 @@ public final class LangForDumb {
         int count = 0;
 
         while ((!answer.equals("")) && !answertranslate.equals("")) {
-            answer = answer.toLowerCase();
-            answertranslate = answertranslate.toLowerCase();
+            answer = answer.toLowerCase().trim();
+            answertranslate = answertranslate.toLowerCase().trim();
             switch (answer) {
                 case "english":
                     currentAlphabet = new EnglishAlphabet();
@@ -84,9 +84,14 @@ public final class LangForDumb {
                 }
                 String translatelist = translateAlphabet.decipher(numlist);
                 JLabel lblText = new JLabel();
-                lblText.add("Translating from " + userinput + " to "
-                        + titletranslate, lblText);
-                frame.getContentPane().add(lblText);
+                lblText.setText("Translating from " + userinput + " to "
+                        + titletranslate);
+                frame.setMinimumSize(new Dimension(800, 600));
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.pack();
+                frame.setVisible(true);
+                frame.setLocationRelativeTo(null);
+                //frame.getContentPane().add(lblText);
                 out.println("");
                 out.println(userinput + " translates to " + translatelist);
                 out.println("");
