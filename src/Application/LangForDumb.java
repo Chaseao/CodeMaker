@@ -36,6 +36,8 @@ public final class LangForDumb {
         JButton button = new JButton("Click here!");
         JPanel panel = new JPanel();
 
+        DisplayGUI display = new DisplayGUI();
+
         // Add button to JPanel
         panel.add(button);
         // And JPanel needs to be added to the JFrame itself!
