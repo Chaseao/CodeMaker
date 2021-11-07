@@ -23,23 +23,6 @@ public final class LangForDumb {
 
         final DisplayGUI display = new DisplayGUI();
 
-        // Add button to JPanel
-        panel.add(button);
-        // And JPanel needs to be added to the JFrame itself!
-        frame.getContentPane().add(panel);
-        button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                display.UpdateTitleText("Welcome to hell.");
-            }
-        });
-
-        frame.setVisible(true);
-
-        frame.setMinimumSize(new Dimension(800, 600));
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        JLabel lblText = new JLabel();
-        JLabel translation = new JLabel();
         IAlphabet currentAlphabet = null;
         IAlphabet translateAlphabet = null;
 
