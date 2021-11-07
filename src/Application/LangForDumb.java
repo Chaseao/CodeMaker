@@ -4,10 +4,6 @@ import EcryptionObjects.EnglishAlphabet;
 import EcryptionObjects.IAlphabet;
 import EcryptionObjects.MilitaryAlphabet;
 import EcryptionObjects.MorseCodeAlphabet;
-import components.simplereader.SimpleReader;
-import components.simplereader.SimpleReader1L;
-import components.simplewriter.SimpleWriter;
-import components.simplewriter.SimpleWriter1L;
 
 /**
  * @author chase
@@ -19,21 +15,16 @@ public final class LangForDumb {
      */
     public static void main(String[] args) {
 
-        final DisplayGUI2 display = new DisplayGUI2();
+        final DisplayGUI display = new DisplayGUI();
 
     }
 
-    public static void buttonDoTranslation(DisplayGUI2 display) {
-        SimpleReader in = new SimpleReader1L();
-        SimpleWriter out = new SimpleWriter1L();
-
+    public static void buttonDoTranslation(DisplayGUI displayGUI) {
         IAlphabet currentAlphabet = null;
         IAlphabet translateAlphabet = null;
 
-        out.print("Please input encoding language: ");
-        String answer = in.nextLine();
-        out.print("Please input decoding language: ");
-        String answertranslate = in.nextLine();
+        String answer = displayGUI.GetEncryptionType();
+        String answertranslate = displayGUI.GetDecryptionType();
 
         int count = 0;
         answer = answer.toLowerCase().trim();
@@ -70,25 +61,22 @@ public final class LangForDumb {
         }
         if (count == 0) {
 
-            String userinput = display.GetEncryptionText();
+            String userinput = displayGUI.GetEncryptionText();
             String title = currentAlphabet.getTitle();
             String titletranslate = translateAlphabet.getTitle();
             components.queue.Queue<Integer> numlist = currentAlphabet
                     .cipher(userinput);
             if (numlist == null) {
-                display.UpdateDecryptionText("");
+                displayGUI.UpdateDecryptionText("INVALID CODE");
             } else {
                 String translatelist = translateAlphabet.decipher(numlist);
-                display.UpdateTitleText(
+                displayGUI.UpdateTitleText(
                         "Translating from " + title + " to " + titletranslate);
-                out.println("");
-                display.UpdateDecryptionText(
-                        userinput + " translates to " + translatelist);
-                out.println("");
+                displayGUI.UpdateDecryptionText(translatelist);
             }
 
         } else {
-            out.println("Good Bye!");
+            displayGUI.UpdateDecryptionText("INVALID CODE");
         }
 
     }
