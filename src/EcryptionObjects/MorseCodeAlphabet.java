@@ -14,7 +14,7 @@ public class MorseCodeAlphabet implements IAlphabet {
     private String[] morse = { "*-", "-***", "-*-*", "-**", "*", "**-*", "--*",
             "****", "**", "*---", "-*-", "*-**", "--", "-*", "---", "*--*",
             "--*-", "*-*", "***", "-", "**-", "***-", "*--", "-**-", "-*--",
-            "--**", " " };
+            "--**", "/" };
 
     @Override
     public String getTitle() {
