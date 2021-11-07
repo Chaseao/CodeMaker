@@ -9,22 +9,25 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollBar;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-public class DisplayGUI implements ActionListener {
+public class DisplayGUI2 implements ActionListener {
 
     private JLabel titleTextField;
     private JLabel ecryptionTitleTextField;
-    //private JTextField ecryptionTextField;
-    //private JTextArea ecryptionTextArea;
-    //private JScrollBar encryptionScrollBar;
+    private JTextField ecryptionTextField;
+    private JTextArea ecryptionTextArea;
+    private JScrollBar encryptionScrollBar;
     private JLabel decryptionTitleTextField;
     private JLabel decryptionTextField;
 
     private JPanel guiPanel;
     private JFrame guiWindow;
 
-    public DisplayGUI() {
+    public DisplayGUI2() {
         this.initializeGUI_Window();
 
         this.initializeGUI_Panel();
@@ -50,7 +53,7 @@ public class DisplayGUI implements ActionListener {
         settings.weightx = 0;
         settings.gridx = 1;
         settings.gridy = 2;
-        //this.guiPanel.add(this.ecryptionTextField, settings);
+        this.guiPanel.add(this.ecryptionTextField, settings);
 
         settings.weightx = 1;
         settings.gridx = 2;
@@ -71,9 +74,9 @@ public class DisplayGUI implements ActionListener {
         this.titleTextField = new JLabel("Title", centerAlign);
         this.ecryptionTitleTextField = new JLabel("Language One", centerAlign);
         this.decryptionTitleTextField = new JLabel("Language Two", centerAlign);
-        //ecryptionTextField = new JTextField(4);
-        //this.ecryptionTextArea = new JTextArea(5, 20);
-        //this.ecryptionTextArea.setEditable(false);
+        this.ecryptionTextField = new JTextField(4);
+        this.ecryptionTextArea = new JTextArea(5, 20);
+        this.ecryptionTextArea.setEditable(false);
         this.decryptionTextField = new JLabel("Decryption Text", centerAlign);
 
     }
@@ -88,7 +91,7 @@ public class DisplayGUI implements ActionListener {
     }
 
     public void UpdateEcryptionText(String updatedText) {
-        //this.ecryptionTextField.setText(updatedText);
+        this.ecryptionTextField.setText(updatedText);
     }
 
     public void UpdateDecryptionText(String updatedText) {
