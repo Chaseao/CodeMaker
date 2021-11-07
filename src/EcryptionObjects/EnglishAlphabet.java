@@ -10,7 +10,7 @@ import components.queue.Queue2;
 public class EnglishAlphabet implements IAlphabet {
 
     private String title = "English";
-    private String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    private String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ ";
 
     /**
      * Returns English.

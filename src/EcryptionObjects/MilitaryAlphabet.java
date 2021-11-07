@@ -11,6 +11,11 @@ public class MilitaryAlphabet implements IAlphabet {
 
     private Queue<Character> myAlphabet;
     private String title = "Military";
+    private String[] alphabetarray = { "Alpha", "Bravo", "Charlie", "Delta",
+            "Echo", "Foxtrot", "Golf", "Hotel", "India", "Juliet", "Kilo",
+            "Lima", "Mike", "Novemeber", "Oscar", "Papa", "Quebec", "Romeo",
+            "Sierra", "Tango", "Uniform", "Victor", "Whiskey", "X-ray",
+            "Yankee", "Zulu", " " };
     private String alphabet = "Alpha Bravo Charlie Delta Echo Foxtrot Golf "
             + "Hotel India Juliet Kilo Lima Mike Novemeber Oscar Papa Quebec "
             + "Romeo Sierra Tango Uniform Victor Whiskey X-ray Yankee Zulu";
@@ -30,7 +35,8 @@ public class MilitaryAlphabet implements IAlphabet {
         for (int i = 0; i < arrayOfInputToCipher.length
                 && !invalidOutput; i++) {
             String wordToCipher = arrayOfInputToCipher[i];
-            int cipheredWord = this.cipherWord(wordToCipher, arrayOfCipher);
+            int cipheredWord = this.cipherWord(wordToCipher,
+                    this.alphabetarray);
 
             if (cipheredWord != -1) {
                 messageToCipher.enqueue(cipheredWord);
@@ -61,7 +67,8 @@ public class MilitaryAlphabet implements IAlphabet {
         String[] arrayOfCipher = this.alphabet.toUpperCase().split(" ");
 
         while (inputToDecipher.length() > 0) {
-            decipheredWord += arrayOfCipher[inputToDecipher.dequeue()] + " ";
+            decipheredWord += this.alphabetarray[inputToDecipher.dequeue()]
+                    + " ";
         }
 
         return decipheredWord;
