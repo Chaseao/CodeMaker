@@ -35,7 +35,7 @@ public final class LangForDumb {
         JButton button = new JButton("Click here!");
         JPanel panel = new JPanel();
 
-        final DisplayGUI display = new DisplayGUI();
+        DisplayGUI display = new DisplayGUI();
 
         // Add button to JPanel
         panel.add(button);
@@ -44,7 +44,7 @@ public final class LangForDumb {
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                display.UpdateTitleText("Welcome to hell.");
+                frame.setTitle("Welcome to hell.");
             }
         });
 
