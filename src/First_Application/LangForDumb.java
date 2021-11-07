@@ -22,7 +22,7 @@ public final class LangForDumb {
     public static void main(String[] args) {
         SimpleReader in = new SimpleReader1L();
         SimpleWriter out = new SimpleWriter1L();
-        JFrame frame = new JFrame("Enchipher");
+        JFrame frame = new JFrame("Hello World APP");
 
         frame.setMinimumSize(new Dimension(800, 600));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -43,8 +43,8 @@ public final class LangForDumb {
         int count = 0;
 
         while ((!answer.equals("")) && !answertranslate.equals("")) {
-            answer = answer.toLowerCase().trim();
-            answertranslate = answertranslate.toLowerCase().trim();
+            answer = answer.toLowerCase();
+            answertranslate = answertranslate.toLowerCase();
             switch (answer) {
                 case "english":
                     currentAlphabet = new EnglishAlphabet();
@@ -86,20 +86,8 @@ public final class LangForDumb {
                     out.println("Not a valid String");
                 }
                 String translatelist = translateAlphabet.decipher(numlist);
-<<<<<<< HEAD
-                JLabel lblText = new JLabel();
                 lblText.setText("Translating from " + userinput + " to "
                         + titletranslate);
-                frame.setMinimumSize(new Dimension(800, 600));
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.pack();
-                frame.setVisible(true);
-                frame.setLocationRelativeTo(null);
-                //frame.getContentPane().add(lblText);
-=======
-                lblText.setText("Translating from " + userinput + " to "
-                        + titletranslate);
->>>>>>> b96baecadd5588e5d67b554f2d6577cd5626cc74
                 out.println("");
                 translation
                         .setText(userinput + " translates to " + translatelist);
