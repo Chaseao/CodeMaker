@@ -1,7 +1,17 @@
 package Application;
 
 import java.awt.Dimension;
+<<<<<<< HEAD
 
+=======
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+>>>>>>> parent of b8b4e4c (Update LangForDumb.java)
 
 import EcryptionObjects.EnglishAlphabet;
 import EcryptionObjects.IAlphabet;
