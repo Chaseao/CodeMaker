@@ -14,7 +14,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-public class DisplayGUI2 implements ActionListener {
+public class DisplayGUI3 implements ActionListener {
 
     private JLabel titleTextField;
     private JLabel ecryptionTitleTextField;
@@ -25,7 +25,7 @@ public class DisplayGUI2 implements ActionListener {
     private JPanel guiPanel;
     private JFrame guiWindow;
 
-    public DisplayGUI2() {
+    public DisplayGUI3() {
         this.initializeGUI_Window();
 
         this.initializeGUI_Panel();
@@ -72,7 +72,7 @@ public class DisplayGUI2 implements ActionListener {
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                DisplayGUI2.this.UpdateTitleText("Welcome to hell.");
+                DisplayGUI3.this.UpdateTitleText("Welcome to hell.");
             }
         });
 
