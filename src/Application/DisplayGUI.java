@@ -6,6 +6,7 @@ import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -62,6 +63,19 @@ public class DisplayGUI implements ActionListener {
         settings.gridy = 3;
         this.guiPanel.add(this.decryptionTextField, settings);
 
+        JButton button = new JButton("Click here!");
+        settings.weightx = 0;
+        settings.gridx = 2;
+        settings.gridy = 2;
+        this.guiPanel.add(button);
+
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                DisplayGUI.this.UpdateTitleText("Welcome to hell.");
+            }
+        });
+
         this.guiWindow.add(this.guiPanel);
     }
 
@@ -101,7 +115,7 @@ public class DisplayGUI implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent evt) {
-        String text = this.ecryptionTextField.getText();
+        //  String text = this.ecryptionTextField.getText();
 
     }
 }
