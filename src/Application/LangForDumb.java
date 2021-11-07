@@ -1,9 +1,13 @@
 package Application;
 
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 import EcryptionObjects.EnglishAlphabet;
@@ -26,7 +30,24 @@ public final class LangForDumb {
     public static void main(String[] args) {
         SimpleReader in = new SimpleReader1L();
         SimpleWriter out = new SimpleWriter1L();
-        JFrame frame = new JFrame("Hello World APP");
+        final JFrame frame = new JFrame("Hello World APP");
+
+        // Create JButton and JPanel
+        JButton button = new JButton("Click here!");
+        JPanel panel = new JPanel();
+
+        // Add button to JPanel
+        panel.add(button);
+        // And JPanel needs to be added to the JFrame itself!
+        frame.getContentPane().add(panel);
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setTitle("Welcome to hell.");
+            }
+        });
+
+        frame.setVisible(true);
 
         frame.setMinimumSize(new Dimension(800, 600));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -80,6 +101,7 @@ public final class LangForDumb {
 
             }
             if (count == 0) {
+                frame.setTitle("Welcome to purgatory.");
                 out.println("Please enter in a String: ");
                 String userinput = in.nextLine();
                 String title = currentAlphabet.getTitle();
@@ -90,8 +112,8 @@ public final class LangForDumb {
                     out.println("Not a valid String");
                 }
                 String translatelist = translateAlphabet.decipher(numlist);
-                lblText.setText("Translating from " + userinput + " to "
-                        + titletranslate);
+                lblText.setText(
+                        "Translating from " + title + " to " + titletranslate);
                 out.println("");
                 translation
                         .setText(userinput + " translates to " + translatelist);
