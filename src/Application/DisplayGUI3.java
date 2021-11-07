@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -17,9 +18,9 @@ import javax.swing.SwingConstants;
 public class DisplayGUI3 implements ActionListener {
 
     private JLabel titleTextField;
-    private JLabel ecryptionTitleTextField;
+    private JComboBox<String> ecryptionTitleTextField;
     private JTextField ecryptionTextField;
-    private JLabel decryptionTitleTextField;
+    private JComboBox<String> decryptionTitleTextField;
     private JTextArea decryptionTextField;
 
     private JPanel guiPanel;
@@ -72,7 +73,7 @@ public class DisplayGUI3 implements ActionListener {
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                DisplayGUI3.this.UpdateTitleText("Welcome to hell.");
+
             }
         });
 
@@ -81,10 +82,11 @@ public class DisplayGUI3 implements ActionListener {
 
     private void initializeGUI_TextLabels() {
         int centerAlign = SwingConstants.CENTER;
+        String[] lang = { "English", "MorseCode", "Military" };
 
         this.titleTextField = new JLabel("Title", centerAlign);
-        this.ecryptionTitleTextField = new JLabel("Language One", centerAlign);
-        this.decryptionTitleTextField = new JLabel("Language Two", centerAlign);
+        this.ecryptionTitleTextField = new JComboBox<String>(lang);
+        this.decryptionTitleTextField = new JComboBox<String>(lang);
         this.ecryptionTextField = new JTextField(4);
         this.decryptionTextField = new JTextArea(4, 5);
         this.decryptionTextField.setEditable(false);
