@@ -4,5 +4,4 @@ A JFrame windows application that will convert text to various types of crypted 
 What I Learned
 ===============
 - How to use the JFrame architecture
-- How to use object oriented programming to reduce code reussage
-- How to decrypt and encrypt strings
+- How to use object oriented programming and the strategy pattern to reduce code reussage
