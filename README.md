@@ -1,5 +1,5 @@
 # Code Maker
-A JFrame windows application that will convert text to various types of crypted messages and visa versa
+A JFrame windows application that will convert text to various types of encrypted messages and visa versa
 
 What I Learned
 ===============
